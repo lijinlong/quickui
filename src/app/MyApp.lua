@@ -3,6 +3,7 @@ require("config")
 require("framework.init")
 require("framework.shortcodes")
 require("framework.cc.init")
+require("app.compatible")
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 

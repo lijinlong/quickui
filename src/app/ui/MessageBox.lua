@@ -12,7 +12,7 @@ local DEFAULT_TTF_TITLE_ALIGN = cc.TEXT_ALIGNMENT_CENTER
 local DEFAULT_TTF_MSG_SIZE = 32
 local DEFAULT_TTF_MSG_COLOR = display.COLOR_WHITE
 local DEFAULT_TTF_MSG_ALIGN = cc.TEXT_ALIGNMENT_LEFT
-local DEFAULT_TTF_MSG_VALIGN = cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM
+local DEFAULT_TTF_MSG_VALIGN = cc.VERTICAL_TEXT_ALIGNMENT_TOP
 
 -- local UIGroup = import("cc.ui.UIGroup")
 local M = class("MessageBox", cc.ui.UIGroup)
@@ -108,17 +108,18 @@ function M:ctor(args)
 				size = DEFAULT_TTF_MSG_SIZE,
     			color = DEFAULT_TTF_MSG_COLOR,
     			textAlign = DEFAULT_TTF_MSG_ALIGN,
-    			--textValign = DEFAULT_TTF_MSG_VALIGN,
+    			textValign = DEFAULT_TTF_MSG_VALIGN,
     			x = 10,
     			y = msgy,
     			dimensions = cc.size(size.width-20, size.height-100),
     		}
 		end
-		dump(msg)
+		-- dump(msg)
 		self.msg = cc.ui.UILabel.new(msg):addTo(layer)
+		print("msg content size", self.msg:getContentSize().width, self.msg:getContentSize().height, 10, msgy)
 		self.msg:setAnchorPoint(display.ANCHOR_POINTS[display.LEFT_TOP])
 		if not msg.x and not msg.y then
-			self.msg:setPosition(size.width/2, titley)
+			self.msg:setPosition(10, msgy)
 		end
 	end
 
