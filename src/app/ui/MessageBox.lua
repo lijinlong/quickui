@@ -30,6 +30,7 @@ local M = class("MessageBox", cc.ui.UIGroup)
 -- @args.item 附加的层
 -- @args.btns 按钮的数组{ btn1, btn2, ... }
 --		btns.images 按钮组图片数组
+--		btns.label 按钮标签设置
 --		btn[1] = normal label
 --		btn.click function 点击的回调
 --		btn.images 按钮图片数组
@@ -137,6 +138,7 @@ function M:ctor(args)
 		    pressed = "ui/Button01Pressed.png",
 		    disabled = "ui/Button01Disabled.png",
 		}
+		local labelSt = args.btns.label
 		local btnDefaultWidth = math.min(size.width/#args.btns, 90)
 		local btnDefaultHeight = 60
 		local btns = {}
@@ -148,11 +150,18 @@ function M:ctor(args)
 			local sz = btn.size or nilObj
 			local btnW, btnH = sz.width or btnDefaultWidth, sz.height or btnDefaultHeight
 	        button:setButtonSize(btnW, btnH)
-	        button:setButtonLabel("normal", cc.ui.UILabel.new({
-	            UILabelType = 2,
-	            text = btn[1],
-	            size = btnH-10,
-	        }))
+	        local btnlabel = btn[1]
+	        if type(btnlabel)=="string" then
+	        	btnlabel = { text = btnlabel }
+	        end
+	        local label = {
+		        UILabelType = btnlabel.UILabelType or labelSt.UILabelType or cc.ui.UILabel.LABEL_TYPE_TTF,
+	            text = btnlabel.text,
+	            size = btnlabel.size or labelSt.size or btnH-10,
+	            font = btnlabel.font or labelSt.font,
+		    	color = btnlabel.color or labelSt.color,
+		    }
+	        button:setButtonLabel("normal", cc.ui.UILabel.new(label))
 	        if btn.align then
 	        	autoAlign = false
 	        	button:align(unpack(btn.align))

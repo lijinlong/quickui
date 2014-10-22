@@ -10,7 +10,7 @@ if [ ! -f $BIN ]; then
 fi
 
 ARG="-debugger-codeide -workdir $DIR"
-SIZE="-portrait"
+SIZE="-portrait -scale 0.5"
 CMD="$BIN $ARG $SIZE"
 
 until $CMD; do

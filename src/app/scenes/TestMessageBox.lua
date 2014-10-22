@@ -49,9 +49,11 @@ function T:createView()
 以lisp语言为基础进行的讲解"]],
 		-- item = 附加的层,
 		btns = {
-			{"ok",
-				click = function()
+			{ { text = "ok", size = 80, color = cc.c3b(255, 255, 5) },
+				size = cc.size(190, 64),
+				click = function(event)
 					print("clicked")
+					dump(event)
 					self.view:dismiss()
 				end 
 			},
@@ -60,7 +62,13 @@ function T:createView()
 					print("cancle")
 					self.view:dismiss()
 				end 
-			}
+			},
+			images = {
+			    normal = "ui/Button02.png",
+			    pressed = "ui/Button02Pressed.png",
+			    disabled = "ui/Button02Disabled.png",
+			},
+			label = { color = cc.c3b(0, 255, 5)}
 		},
 
 	}:addTo(self)
