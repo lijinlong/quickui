@@ -37,7 +37,7 @@ function T:createView()
 		-- image = "ui/MenuSceneBg.png",
 		-- image = { "ui/MenuSceneBg.png", scale = 0.5 }, 
 		-- image = { "#OtherSceneBg.png", scale = 0.5 },
-		--image = { "ui/MenuSceneBg.png", params={class = cc.Scale9Sprite, size = viewSize, } },
+		image = { "ui/MenuSceneBg.png", params={class = cc.Scale9Sprite, size = viewSize, } },
 
 		title = "标题",
 		msg = [["信息---深入理解计算机系统

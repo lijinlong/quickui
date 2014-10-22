@@ -116,7 +116,6 @@ function M:ctor(args)
 		end
 		-- dump(msg)
 		self.msg = cc.ui.UILabel.new(msg):addTo(layer)
-		print("msg content size", self.msg:getContentSize().width, self.msg:getContentSize().height, 10, msgy)
 		self.msg:setAnchorPoint(display.ANCHOR_POINTS[display.LEFT_TOP])
 		if not msg.x and not msg.y then
 			self.msg:setPosition(10, msgy)

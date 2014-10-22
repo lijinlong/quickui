@@ -15,6 +15,15 @@ if string.sub(version, 1, 1) == "2" then
 	cc.c4b = ccc4
 	cc.c3b = ccc3
 
+	cc.Scale9Sprite = CCScale9Sprite
+
+	cc.TEXT_ALIGNMENT_CENTER    = 0x1
+	cc.TEXT_ALIGNMENT_LEFT  = 0x0
+	cc.TEXT_ALIGNMENT_RIGHT = 0x2
+	cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM   = 0x2
+	cc.VERTICAL_TEXT_ALIGNMENT_CENTER   = 0x1
+	cc.VERTICAL_TEXT_ALIGNMENT_TOP  = 0x0
+
 	display.addSpriteFrames = display.addSpriteFramesWithFile
 	display.newLine = function(points, params)
 		return display.newNode()
